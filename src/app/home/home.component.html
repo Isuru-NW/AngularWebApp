@@ -5,9 +5,17 @@
     </div>
     <div>
         <label for="city">Search by City:</label>
-       <!-- // <input type="text" id="city" [(ngModel)]=""> -->
+        <input type="text" id="city" [(ngModel)]="city">
         <br>
-        
-        <button>Search</button>
+        <!-- {{ city }} -->
+        <!-- 2 way data binding data in and out in the same time-->
+        <button (click)="searchHousing()">Search</button>
     </div>
+</section>
+<section class="search results">
+    <ul>
+        <li *ngFor="let location of searchResults">
+            <p><a [routerLink]="['/details']">{{location.name}}<br> {{location.city}}<br> {{location.desccription}}</a></p>
+        </li>
+    </ul>
 </section>
